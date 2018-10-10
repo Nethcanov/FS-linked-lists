@@ -1,3 +1,8 @@
+/* ----------------------
+Note: BEFORE tackling the LinkedList class
+below, read the tests in the test file.
+---------------------- */
+
 class Node {
   constructor(value) {
     this.next = null;
@@ -7,33 +12,42 @@ class Node {
 
 class LinkedList {
   constructor(headValue) {
-    this.head = headValue;
-    this.tail = null;
+    this.head = new Node(headValue);
+    this.tail = this.head;
   }
 
   // adds a node to the tail of the list
-  appendToTail(val) {}
+  addToTail(val) {
+    this.tail.next = new Node(val);
+    this.tail = this.tail.next;
+  }
+
+  // removes the node assigned to the tail
+  removeFromTail() {
+    let currentNode = this.head;
+    while (currentNode.next !== this.tail) {
+      currentNode = currentNode.next;
+    }
+    this.tail = currentNode;
+  }
 
   // adds a node to the head of the list
-  insertHead(val) {}
+  addToHead(val) {}
 
-  // removes the head node
-  removeHead() {}
-
-  // removes the tail node
-  removeTail(val) {}
+  // removes the node assigned to the head
+  removeFromHead() {}
 
   // returns the node that contains the value
-  findNode(val) {}
+  findNode(refNodeValue) {}
 
   // applies a callback to every node in the list
-  forEach(callback) {}
+  forEach(fn) {}
 
   // inserts a new node after the reference node
-  insertAfter(refNode, val) {}
+  insertAfter(refNodeValue, val) {}
 
   // deletes the node after the reference node
-  deleteAfter(refNode) {}
+  deleteAfter(refNodeValue) {}
 
 }
 
