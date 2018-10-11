@@ -31,6 +31,11 @@ describe('Queue', () => {
       linkedList.removeFromTail();
       expect(linkedList.tail.value).to.equal(2);
     });
+    xit('should return the node that was removed', () => {
+      linkedList.addToTail(2);
+      linkedList.addToTail(3);
+      expect(linkedList.removeFromTail().value).to.equal(3);
+    });
   });
   describe('The addToHead method', () => {
     it('should add a new head to the linked list', () => {
@@ -44,6 +49,10 @@ describe('Queue', () => {
       linkedList.addToHead(0);
       linkedList.removeFromHead();
       expect(linkedList.head.value).to.equal(1);
+    });
+    xit('should return the node that was removed', () => {
+      linkedList.addToHead(0);
+      expect(linkedList.removeFromHead().value).to.equal(0);
     });
     xit('should set the head & tail to null if the linked list only contains one node', () => {
       linkedList.removeFromHead();
@@ -93,23 +102,29 @@ describe('Queue', () => {
       expect(linkedList.insertAfter(9, 3)).to.equal("No node found.");
     });
   });
-  describe('The deleteAfter method', () => {
+  describe('The removeAfter method', () => {
     it('should delete the node after the refNode value', () => {
       linkedList.addToTail(2);
       linkedList.addToTail(3);
       linkedList.addToTail(4);
-      linkedList.deleteAfter(2);
+      linkedList.removeAfter(2);
       expect(linkedList.head.next.value).to.equal(2);
       expect(linkedList.head.next.next.value).to.equal(4);
+    });
+    xit('should return the node that was removed', () => {
+      linkedList.addToTail(2);
+      linkedList.addToTail(3);
+      linkedList.addToTail(4);
+      expect(linkedList.removeAfter(2).value).to.equal(3);
     });
     xit('should update the tail if the node deleted was the tail', () => {
       linkedList.addToTail(2);
       linkedList.addToTail(3);
-      linkedList.deleteAfter(2);
+      linkedList.removeAfter(2);
       expect(linkedList.tail.value).to.equal(2);
     });
     xit('should return "No node found." if the refNodeValue does not exist', () => {
-      expect(linkedList.deleteAfter(9, 3)).to.equal("No node found.");
+      expect(linkedList.removeAfter(9, 3)).to.equal("No node found.");
     });
 
   });
