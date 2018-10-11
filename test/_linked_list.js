@@ -1,9 +1,9 @@
 const { expect } = require('chai');
-const LinkedList = require('../src/linked_list');
+const LinkedList = require('../src/reverse_linked_list');
 
 let linkedList = null;
 
-describe('Queue', () => {
+describe('LinkedList', () => {
   beforeEach(() => {
     linkedList = new LinkedList(1);
   });
@@ -126,8 +126,5 @@ describe('Queue', () => {
     xit('should return "No node found." if the refNodeValue does not exist', () => {
       expect(linkedList.removeAfter(9, 3)).to.equal("No node found.");
     });
-
-  });
-  
+  });  
 });
-
