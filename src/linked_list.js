@@ -24,11 +24,10 @@ class LinkedList {
 
   // removes the node assigned to the tail
   removeFromTail() {
-    let currentNode = this.head;
-    while (currentNode.next !== this.tail) {
-      currentNode = currentNode.next;
-    }
-    this.tail = currentNode;
+    // create a variable to keep track of the current node
+    // loop through all nodes (stop at the second-last
+    // node - the one one before the tail)
+    // re-assign the tail to that node
   }
 
   // adds a node to the head of the list
