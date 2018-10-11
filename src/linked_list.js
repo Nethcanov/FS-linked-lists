@@ -5,8 +5,8 @@ below, read the tests in the test file.
 
 class Node {
   constructor(value) {
-    this.next = null;
     this.value = value;
+    this.next = null;
   }
 }
 
@@ -22,13 +22,21 @@ class LinkedList {
     this.tail = this.tail.next;
   }
 
-  // removes the node assigned to the tail
-  removeFromTail() {
-    // create a variable to keep track of the current node
-    // loop through all nodes (stop at the second-last
-    // node - the one one before the tail)
-    // re-assign the tail to that node
+  // returns the total number of nodes in the list
+  getSize() {
+    let currentNode = this.head;
+    let size = 1;
+
+    while (currentNode !== this.tail) {
+      currentNode = currentNode.next;
+      size++;
+    }
+
+    return size;
   }
+
+  // removes the node assigned to the tail
+  removeFromTail() {}
 
   // adds a node to the head of the list
   addToHead(val) {}
@@ -47,6 +55,24 @@ class LinkedList {
 
   // deletes the node after the reference node
   deleteAfter(refNodeValue) {}
+
+  // returns the total number of nodes in the list
+  getSize() {
+    let size = 1;
+    // let currentNode = this.head;
+
+    // while (currentNode !== this.tail) {
+    //   currentNode = currentNode.next;
+    //   size++;
+    // }
+
+    for (let currentNode = this.head; currentNode !== this.tail; currentNode = currentNode.next) {
+      size++;
+    }
+
+
+    return size;
+  }
 
 }
 

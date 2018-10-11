@@ -10,17 +10,26 @@ describe('Queue', () => {
 
   describe('The addToTail method', () => {
     it('should add a new node to the tail', () => {
+      linkedList.addToTail(2);
+      expect(linkedList.head.next.value).to.equal(2);
+      expect(linkedList.tail.value).to.equal(2);
+    });
+  });
+  describe('The getSize method', () => {
+    it('should calculate the total number of nodes in the list', () => {
+      linkedList.addToTail(2);
       linkedList.addToTail(3);
-      expect(linkedList.head.next.value).to.equal(3);
-      expect(linkedList.tail.value).to.equal(3);
+      linkedList.addToTail(4);
+      linkedList.addToTail(5);
+      expect(linkedList.getSize()).to.equal(5);
     });
   });
   describe('The removeFromTail method', () => {
     it('should remove the tail from the linked list', () => {
-      linkedList.addToTail(1);
       linkedList.addToTail(2);
+      linkedList.addToTail(3);
       linkedList.removeFromTail();
-      expect(linkedList.tail.value).to.equal(1);
+      expect(linkedList.tail.value).to.equal(2);
     });
   });
   describe('The addToHead method', () => {
