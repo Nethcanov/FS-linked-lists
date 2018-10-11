@@ -103,7 +103,7 @@ describe('Queue', () => {
     });
   });
   describe('The removeAfter method', () => {
-    it('should delete the node after the refNode value', () => {
+    it('should remove the node after the refNode value', () => {
       linkedList.addToTail(2);
       linkedList.addToTail(3);
       linkedList.addToTail(4);
@@ -117,7 +117,7 @@ describe('Queue', () => {
       linkedList.addToTail(4);
       expect(linkedList.removeAfter(2).value).to.equal(3);
     });
-    xit('should update the tail if the node deleted was the tail', () => {
+    xit('should update the tail if the node removed was the tail', () => {
       linkedList.addToTail(2);
       linkedList.addToTail(3);
       linkedList.removeAfter(2);

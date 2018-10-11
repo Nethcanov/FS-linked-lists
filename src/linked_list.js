@@ -53,26 +53,8 @@ class LinkedList {
   // inserts a new node after the reference node
   insertAfter(refNodeValue, val) {}
 
-  // deletes the node after the reference node
-  deleteAfter(refNodeValue) {}
-
-  // returns the total number of nodes in the list
-  getSize() {
-    let size = 1;
-    // let currentNode = this.head;
-
-    // while (currentNode !== this.tail) {
-    //   currentNode = currentNode.next;
-    //   size++;
-    // }
-
-    for (let currentNode = this.head; currentNode !== this.tail; currentNode = currentNode.next) {
-      size++;
-    }
-
-
-    return size;
-  }
+  // remove the node after the reference node
+  removeAfter(refNodeValue) {}
 
 }
 
