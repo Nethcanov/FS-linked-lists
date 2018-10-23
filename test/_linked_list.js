@@ -30,6 +30,7 @@ describe('LinkedList', () => {
       linkedList.addToTail(3);
       linkedList.removeFromTail();
       expect(linkedList.tail.value).to.equal(2);
+      expect(linkedList.tail.next).to.equal(null);
     });
     xit('should return the node that was removed', () => {
       linkedList.addToTail(2);
@@ -37,11 +38,12 @@ describe('LinkedList', () => {
       expect(linkedList.removeFromTail().value).to.equal(3);
     });
   });
-  describe('The addToHead method', () => {
-    it('should add a new head to the linked list', () => {
+  describe("The addToHead method", () => {
+    it("should add a new node to the head", () => {
       linkedList.addToHead(0);
       expect(linkedList.head.value).to.equal(0);
       expect(linkedList.head.next.value).to.equal(1);
+      expect(linkedList.tail.value).to.equal(1);
     });
   });
   describe('The removeFromHead method', () => {
@@ -124,7 +126,7 @@ describe('LinkedList', () => {
       expect(linkedList.tail.value).to.equal(2);
     });
     xit('should return "No node found." if the refNodeValue does not exist', () => {
-      expect(linkedList.removeAfter(9, 3)).to.equal("No node found.");
+      expect(linkedList.removeAfter(9)).to.equal("No node found.");
     });
   });  
 });
