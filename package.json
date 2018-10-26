@@ -2,7 +2,7 @@
   "name": "linked_lists",
   "version": "1.0.0",
   "author": "Krista Moroder for Codely",
-  "license": "MIT",
+  "license": "Proprietary",
   "scripts": {
     "test": "mocha"
   },
