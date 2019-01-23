@@ -1,5 +1,5 @@
 const { expect } = require('chai');
-const LinkedList = require('../src/reverse_linked_list');
+const LinkedList = require('../src/linked_list');
 
 let linkedList = null;
 
