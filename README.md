@@ -34,4 +34,4 @@ Run `yarn test` to run tests.
   - [Wikipedia article on Linked Lists](https://en.wikipedia.org/wiki/Linked_list)
 
 ## Notes
-_This is a student project that was created at [Codely](http://codely.tech), a full stack development bootcamp in Barcelona._
+_This is a student project that was created at [CodeOp](http://CodeOp.tech), a full stack development bootcamp in Barcelona._
