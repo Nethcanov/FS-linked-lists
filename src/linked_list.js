@@ -35,6 +35,22 @@ class LinkedList {
     return size;
   }
 
+  // WARM UP
+
+  // returns the value of the head of the linked list
+  headValue() {}
+
+  // returns the value of the tail of the linked list
+  tailValue() {}
+
+  // returns the value of the node that comes after the head
+  nextToHead() {}
+
+  // MAIN EXERCISES
+
+  // returns the NODE stored at the Nth index position of the list
+  getNthNode(index) {}
+
   // removes the node assigned to the tail
   removeFromTail() {}
 
@@ -56,6 +72,13 @@ class LinkedList {
   // remove the node after the reference node
   removeAfter(refNodeValue) {}
 
+  // OPTIONAL
+
+  //merges the current list with a new list, appending the new list after the tail of the current list
+  mergeAppend(newList) {}
+
+  //merges the current list with a new list, by inserting the new list after the node in the index position.
+  mergeAfterIndex(newList, index) {}
 }
 
 module.exports = LinkedList;
