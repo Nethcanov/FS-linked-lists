@@ -75,7 +75,7 @@ describe("LinkedList", () => {
       expect(linkedList.tail.value).to.equal(2);
       expect(linkedList.tail.next).to.equal(null);
     });
-    xit("should return the node that was removed", () => {
+    it("should return the node that was removed", () => {
       linkedList.addToTail(2);
       linkedList.addToTail(3);
       expect(linkedList.removeFromTail().value).to.equal(3);
@@ -99,11 +99,11 @@ describe("LinkedList", () => {
       linkedList.removeFromHead();
       expect(linkedList.head.value).to.equal(2);
     });
-    xit("should return the node that was removed", () => {
+    it("should return the node that was removed", () => {
       linkedList.addToHead(0);
       expect(linkedList.removeFromHead().value).to.equal(0);
     });
-    xit("should set the head & tail to null if the linked list only contains one node", () => {
+    it("should set the head & tail to null if the linked list only contains one node", () => {
       linkedList.removeFromHead();
       expect(linkedList.head).to.equal(null);
       expect(linkedList.tail).to.equal(null);
@@ -117,7 +117,7 @@ describe("LinkedList", () => {
       linkedList.addToTail(4);
       expect(linkedList.findNode(3)).to.equal(linkedList.head.next.next);
     });
-    xit('should return "No node found." if the refNodeValue does not exist', () => {
+    it('should return "No node found." if the refNodeValue does not exist', () => {
       linkedList.addToTail(2);
       linkedList.addToTail(3);
       linkedList.addToTail(4);
@@ -145,12 +145,12 @@ describe("LinkedList", () => {
       expect(linkedList.head.next.next.value).to.equal(3);
       expect(linkedList.head.next.next.next.value).to.equal(4);
     });
-    xit("should update the tail if the node is inserted after the current tail", () => {
+    it("should update the tail if the node is inserted after the current tail", () => {
       linkedList.addToTail(2);
       linkedList.insertAfter(2, 3);
       expect(linkedList.tail.value).to.equal(3);
     });
-    xit('should return "No node found." if the refNodeValue does not exist', () => {
+    it('should return "No node found." if the refNodeValue does not exist', () => {
       expect(linkedList.insertAfter(9, 3)).to.equal("No node found.");
     });
   });
@@ -164,24 +164,24 @@ describe("LinkedList", () => {
       expect(linkedList.head.next.value).to.equal(2);
       expect(linkedList.head.next.next.value).to.equal(4);
     });
-    xit("should return the node that was removed", () => {
+    it("should return the node that was removed", () => {
       linkedList.addToTail(2);
       linkedList.addToTail(3);
       linkedList.addToTail(4);
       expect(linkedList.removeAfter(2).value).to.equal(3);
     });
-    xit("should update the tail if the node removed was the tail", () => {
+    it("should update the tail if the node removed was the tail", () => {
       linkedList.addToTail(2);
       linkedList.addToTail(3);
       linkedList.removeAfter(2);
       expect(linkedList.tail.value).to.equal(2);
     });
-    xit('should return "No node found." if the refNodeValue does not exist', () => {
+    it('should return "No node found." if the refNodeValue does not exist', () => {
       expect(linkedList.removeAfter(9)).to.equal("No node found.");
     });
   });
 
-  describe("The mergeAppend method", () => {
+  xdescribe("The mergeAppend method", () => {
     it("should append the given list at the end of the current list", () => {
       linkedList.addToTail(2);
       linkedList.addToTail(3);
@@ -196,7 +196,7 @@ describe("LinkedList", () => {
       expect(linkedList.head.next.next.next.next.value).to.equal(5);
     });
 
-    xit("should update the tail of the list", () => {
+    it("should update the tail of the list", () => {
       linkedList.addToTail(2);
       linkedList.addToTail(3);
 
@@ -210,7 +210,7 @@ describe("LinkedList", () => {
     });
   });
 
-  describe("The mergeAfterIndex method", () => {
+  xdescribe("The mergeAfterIndex method", () => {
     it("should append the given list at the Nth position of the current list", () => {
       linkedList.addToTail(2);
       linkedList.addToTail(3);
@@ -231,7 +231,7 @@ describe("LinkedList", () => {
       expect(linkedList.tail.value).to.equal(3);
     });
 
-    xit("should update the tail of the list if necessary", () => {
+    it("should update the tail of the list if necessary", () => {
       linkedList.addToTail(2);
       linkedList.addToTail(3);
 
