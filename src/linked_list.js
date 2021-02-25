@@ -86,7 +86,7 @@ class LinkedList {
   removeFromTail() {
     let currentNode = this.head; //current is the first
     let previousNode = null; //empty to accept the current node when it becomes the previous
-    let removedNode = this.tail; // assign the value of the tail to this and return it at the end
+    // let removedNode = this.tail; // assign the value of the tail to this and return it at the end
     while (currentNode.next !== null) {
       //traverse the linked list whilst assigning current to previous position
       previousNode = currentNode; //if list is 1,2,3,4,5 - 1 goes in here and then - see next
@@ -143,17 +143,19 @@ class LinkedList {
       node = node.next;
     }
   }
-
+  // list includes red 0, yellow 1, blue 2 - want to add orange
   // inserts a new node after the reference node
   // if new node is inserted after the tail, update the tail
+  // working - if refNodeValue not found return "No node found."
   insertAfter(refNodeValue, val) {
     //node to find, what to insert after
     // traverse linked list and find node refNodeValue
     // create new node
     // update node pointers
     let node = this.head;
-    let tempTail = null;
+    let nodeAfter = null; //to be used to set the tail pointer
     let nodeToAdd = new Node(val); //create node with value to be added
+
     while (node !== null && node.value !== refNodeValue) {
       //while head (node) exists and doesn't equal what we are looking for
       node = node.next; //keep going
@@ -161,8 +163,16 @@ class LinkedList {
         return "No node found."; //if there is no match
       }
     }
-    //need to sort out tail if it is added after the tail
-    //change this bit!return node;
+    //if found
+    if (this.tail === node) {
+      //if reNodeValue is the tail and we are adding val as the new tail and need to update the pointer
+      nodeToAdd.next = null;
+      this.tail = nodeToAdd;
+    } else {
+      nodeAfter = node.next; //if matches -  2 yellow (0 is red, 1 is waiting, 2 is yellow)
+      node.next = nodeToAdd; // 1 is now orange (0 is red, 1 is orange, 2 is yellow)
+      node.next.next = nodeAfter;
+    }
   }
 
   // remove the node after the reference node
