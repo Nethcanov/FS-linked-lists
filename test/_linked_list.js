@@ -181,7 +181,7 @@ describe("LinkedList", () => {
     });
   });
 
-  xdescribe("The mergeAppend method", () => {
+  describe("The mergeAppend method", () => {
     it("should append the given list at the end of the current list", () => {
       linkedList.addToTail(2);
       linkedList.addToTail(3);

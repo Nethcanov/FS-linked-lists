@@ -82,7 +82,7 @@ class LinkedList {
 
   //works
   //removes the node assigned to the tail and returns the removed node
-  //from slides  with added part of returning thr removed node
+  //from slides  with added part of returning the removed node
   removeFromTail() {
     let currentNode = this.head; //current is the first
     let previousNode = null; //empty to accept the current node when it becomes the previous
@@ -144,15 +144,15 @@ class LinkedList {
     }
   }
   // list includes red 0, yellow 1, blue 2 - want to add orange
-  // inserts a new node after the reference node
-  // if new node is inserted after the tail, update the tail
+  // working - inserts a new node after the reference node
+  // working - if new node is inserted after the tail, update the tail
   // working - if refNodeValue not found return "No node found."
   insertAfter(refNodeValue, val) {
-    //node to find, what to insert after
+    // node to find, what to insert after
     // traverse linked list and find node refNodeValue
     // create new node
     // update node pointers
-    let node = this.head;
+    let node = this.head; //to cut down on typing and make it easier to read
     let nodeAfter = null; //to be used to set the tail pointer
     let nodeToAdd = new Node(val); //create node with value to be added
 
@@ -175,8 +175,39 @@ class LinkedList {
     }
   }
 
-  // remove the node after the reference node
-  removeAfter(refNodeValue) {}
+  // working - remove the node after the reference node
+  // working - return the removed node
+  // not working - update pointers (tail) if tail was removed
+  // working - return "No node found." if reNodeValue does not exist
+  //list is yellow, green, blue - find yellow, remove green
+  removeAfter(refNodeValue) {
+    let node = this.head;
+    let toFind = refNodeValue;
+    let nodeAfter = null;
+    let removedNode = null;
+
+    while (node !== null && node.value !== toFind) {
+      //while head (node) exists and doesn't equal what we are looking for
+      node = node.next; //keep going
+      if (node === null || node === this.tail) {
+        return "No node found."; //if there is no match or it is the last node (same difference)
+      }
+    }
+    // if reNodeValue is found
+
+    // if remove final item - not working
+    // if(node.value === toFind && node.next.next === null){
+    //   removedNode = node.next;
+    //   node.next = null;
+
+    // } else {
+
+    nodeAfter = node.next.next; //assign blue as node after
+    removedNode = node.next; // take out green (current node next)
+    node.next = nodeAfter; // blue becomes node next
+    // }
+    return removedNode; //return green
+  }
 
   // OPTIONAL
 
