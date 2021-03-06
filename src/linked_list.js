@@ -26,12 +26,10 @@ class LinkedList {
   getSize() {
     let currentNode = this.head;
     let size = 1;
-
     while (currentNode !== this.tail) {
       currentNode = currentNode.next;
       size++;
     }
-
     return size;
   }
 
@@ -57,6 +55,8 @@ class LinkedList {
     } else {
       return this.head.next.value;
     }
+    //OR
+    //return this.head.next == null ? null : this.head.next.value;
   }
 
   // MAIN EXERCISES
@@ -90,6 +90,8 @@ class LinkedList {
     while (currentNode.next !== null) {
       //traverse the linked list whilst assigning current to previous position
       previousNode = currentNode; //if list is 1,2,3,4,5 - 1 goes in here and then - see next
+
+      //until we have fulfilled the condition in the while loop
       currentNode = currentNode.next; //current becomes 2
     }
 
@@ -100,8 +102,9 @@ class LinkedList {
 
   // adds a node to the head of the list
   addToHead(val) {
-    let newNode = new Node(val);
-    newNode.next = this.head;
+    let newNode = new Node(val); // creates a new node
+    newNode.next = this.head; //The pointer of the newNode is the head
+    //and now points to the original head node as the next one
     this.head = newNode;
   }
 
@@ -111,12 +114,15 @@ class LinkedList {
   removeFromHead() {
     let currentNode = this.head; //(index 0)
     let newHead = currentNode.next; //temp (index 1 to become index 0)
-    while (newHead !== null) {
+    if (newHead !== null) {
+      //while the is a node after the head ...
       this.head = newHead; //moves the element that was "1 to position 0"
-      return currentNode;
+    } else {
+      this.head = null; //set as null if head is null
+      this.tail = null; //set as null if head is null
+      // this.head = this.tail = null // it works but is this ok?
     }
-    this.head = null; //set as null if head is null
-    this.tail = null; //set as null if head is null
+    return currentNode;
   }
 
   //works
@@ -128,6 +134,7 @@ class LinkedList {
       //while head (node) exists and doesn't equal what we are looking for
       node = node.next; //keep going
       if (node === null) {
+        //if the head does not exist
         return "No node found."; //if there is no match
       }
     }
@@ -143,7 +150,7 @@ class LinkedList {
       node = node.next;
     }
   }
-  // list includes red 0, yellow 1, blue 2 - want to add orange
+  // list includes red 0, yellow 1,  want to add orange in the index 1 position
   // working - inserts a new node after the reference node
   // working - if new node is inserted after the tail, update the tail
   // working - if refNodeValue not found return "No node found."
@@ -174,6 +181,23 @@ class LinkedList {
       node.next.next = nodeAfter;
     }
   }
+  //// Jim's code from PT4
+  // insertAfter(refNodeValue, val) {
+  //   let node = this.head;
+  //   while (node !== null && node.value !== refNodeValue) {
+  //     node = node.next;
+  //   }
+  //   // node is either refNode or null
+  //   if (!node) {
+  //     return "No node found.";
+  //   }
+  //   let newNode = new Node(val);
+  //   newNode.next = node.next;
+  //   node.next = newNode;
+  //   if (newNode.next === null) {
+  //     this.tail = newNode;
+  //   }
+  // }
 
   // working - remove the node after the reference node
   // working - return the removed node
@@ -193,15 +217,6 @@ class LinkedList {
         return "No node found."; //if there is no match or it is the last node (same difference)
       }
     }
-    // if reNodeValue is found
-
-    // if remove final item - not working
-    // if(node.value === toFind && node.next.next === null){
-    //   removedNode = node.next;
-    //   node.next = null;
-
-    // } else {
-
     nodeAfter = node.next.next; //assign blue as node after
     removedNode = node.next; // take out green (current node next)
     node.next = nodeAfter; // blue becomes node next
@@ -213,7 +228,11 @@ class LinkedList {
 
   //merges the current list with a new list, appending the new list after the tail of the current list
   //point list tail to newList head
-  mergeAppend(newList) {}
+  mergeAppend(newList) {
+    let node = this.tail;
+    node.next = newList.head;
+    this.tail = newList.tail;
+  }
 
   //merges the current list with a new list, by inserting the new list after the node in the index position.
   //find node in the index position - the node.next points to newList.head
